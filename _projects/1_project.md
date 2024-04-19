@@ -21,45 +21,6 @@ To give your project a background in the portfolio page, just add the img tag to
     img: /assets/img/12.jpg
     ---
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
 The code is simple.
 Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
 To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
@@ -67,15 +28,54 @@ Here's the code for the last row of images above:
 
 {% raw %}
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
+```python
+#!/usr/bin/env python3
+import datetime
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+from selenium.webdriver.common.action_chains import ActionChains
+import os
+from twilio.rest import Client
+from apscheduler.schedulers.blocking import BlockingScheduler
+
+
+def vaccine_finder():
+    # Your Account Sid and Auth Token from twilio.com/console
+    # and set the environment variables. See http://twil.io/secure
+    account_sid = 'YOUR ACCOUNT SID'
+    auth_token = 'YOUR AUTH TOKEN'
+    sender = 'SENDER NUMBER FROM TWILIO'
+    receiver = 'RECEIVER NUMBER'
+    client = Client(account_sid, auth_token)
+
+    driver = webdriver.Chrome('DRIVER LOCATION')
+    action = ActionChains(driver)
+    driver.get("https://www.cvs.com/immunizations/covid-19-vaccine")
+    driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+    time.sleep(3)
+
+    driver.find_element_by_partial_link_text('YOUR STATE').click()
+    element = driver.find_element_by_class_name("boxcontainer")
+    action.move_to_element(element).perform()
+
+
+    vaccine_is_available = 'Available'
+    nj_availability_status = driver.find_element_by_xpath('/html/body/div[2]/div/div[19]/div/div/div/div/div/div[1]/div[2]/div/div/div[2]/div/div[6]/div/div/table').text
+    if nj_availability_status.find(vaccine_is_available) != -1:
+        print("We found you a vaccine!")
+        message = client.messages.create(body = 'We found you a vaccine! go to https://www.cvs.com/immunizations/covid-19-vaccine to schedule your appointment now!',from_ = sender,to = receiver)
+
+    else:
+        print("No vaccines available in your area.")
+    driver.quit()
+
+vaccine_finder()
+
+# Schedules job_function to be run once each minute
+scheduler = BlockingScheduler()
+scheduler.add_job(vaccine_finder, 'interval', minutes=5)
+scheduler.start()
 ```
 
 {% endraw %}
