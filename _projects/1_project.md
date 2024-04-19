@@ -1,7 +1,7 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
+title: CVS-Available-Covid-Vaccines
+description: This code will look to see if there are any available Covid vaccines at your local CVS. If there is availability, you will receive a text. You need a Twilio account in order to receive SMS.
 img: assets/img/12.jpg
 importance: 1
 category: work
@@ -17,7 +17,7 @@ To give your project a background in the portfolio page, just add the img tag to
     ---
     layout: page
     title: project
-    description: a project with a background image
+    description: This code will look to see if there are any available Covid vaccines at your local CVS. If there is availability, you will receive a text. You need a Twilio account in order to receive SMS.
     img: /assets/img/12.jpg
     ---
 
