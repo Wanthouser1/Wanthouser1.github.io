@@ -57,17 +57,6 @@
       "score": "10",
       "courses": ["Data Analytics Foundations"]
     }
-    {
-      "institution": "Montclair State University",
-      "location": "Montclair, NJ",
-      "url": "https://www.montclair.edu/",
-      "area": "Business Management and Marketing",
-      "studyType": "Bachelors",
-      "startDate": "2011-09-01",
-      "endDate": "2015-05-20",
-      "score": "10",
-      "courses": ["Statistics"]
-    }
   ],
   "awards": [
     {
