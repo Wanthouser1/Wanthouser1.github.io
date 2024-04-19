@@ -6,7 +6,7 @@
     "email": "wanthouser1@gmail.com",
     "phone": "(912) 123-4567",
     "url": "https://Wanthouser1.github.io",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "summary": "Strategy and growth are the underlying passions that drive my operations and marketing acumen, data research, and entrepreneurial spirit.",
     "location": {
       "address": "47 High Point Dr.",
       "postalCode": "NJ 07081",
@@ -29,42 +29,53 @@
       "url": "https://www.collinsaerospace.com/",
       "startDate": "2023-02-23",
       "endDate": "Current",
-      "summary": "Collaborates closely with business teams to develop and maintain a comprehensive data catalog, incorporating essential business, technical, and operational metadata across diverse datasets. Utilizes advanced data analysis skills to support various projects, including data profiling, cataloging, cleansing, and enrichment processes. Proficient in SQL querying within Databricks for auditing user activity and building dashboards for monitoring data usage requests using Databricks and PowerBI. Applies Python coding within Databricks notebooks to identify and tag personally identifiable information (PII) data, enhancing data security and compliance efforts. Develops Python scripts to monitor users in LDAP, strengthening data governance processes. Additionally, built a PowerApp to streamline internal stakeholder access to data groups, facilitating easier data access requests and management. Collaborates with stakeholders to ensure alignment with organizational data governance standards and supports data management initiatives by facilitating data changes, updates, and enhancements within the organization's data management tool.",
+      "summary": "Collaborates closely with business teams to develop and maintain a comprehensive data catalog, incorporating essential business, technical, and operational metadata across diverse datasets. Utilizes advanced data analysis skills to support various projects, including data profiling, cataloging, cleansing, and enrichment processes.",
       "highlights": ["Relativity"]
     }
   ],
   "volunteer": [
     {
-      "organization": "People's Climate March",
+      "organization": "NORWESCAP",
       "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
+      "position": "Strategic Plan Steering Committee Member",
       "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "startDate": "2018-09-01",
+      "endDate": "2018-11-01",
+      "summary": "The purpose of the Committee is to set useful starting points for a strategic plan, and to guide the plan through a process to get input and ideas from all five counties served by the organization. The goal is to create useful, ambitious and achievable organizational goals for the next five years.",
+      "highlights": ["Poverty Alleviation"]
     }
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
+      "institution": "Saint Elizabeth University",
+      "location": "Morristown, NJ",
+      "url": "https://www.steu.edu/",
+      "area": "Data Analytics",
+      "studyType": "Masters",
+      "startDate": "2020-08-24",
+      "endDate": "Current",
       "score": "10",
-      "courses": ["Theory of Relativity"]
+      "courses": ["Data Analytics Foundations"] ["Time Series"] ["Cryptography"]
+    }
+    {
+      "institution": "Montclair State University",
+      "location": "Montclair, NJ",
+      "url": "https://www.montclair.edu/",
+      "area": "Business Management and Marketing",
+      "studyType": "Bachelors",
+      "startDate": "2011-09-01",
+      "endDate": "2015-05-20",
+      "score": "10",
+      "courses": ["Statistics"]
     }
   ],
   "awards": [
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "title": "Transform Award",
+      "date": "2020-11-01",
+      "awarder": "Anywhere Real Estate",
+      "url": "https://media.licdn.com/dms/image/C5622AQFgHKSe4qp9vQ/feedshare-shrink_1280/0/1613003145759?e=1716422400&v=beta&t=0Gugzr0ejUP2sRV-rPGYqGLnpUeQ_3Vfj9iDv3Pwvgk",
+      "summary": "Recognizes outstanding achievements in driving transformative change, innovation, and improvement within Anywhere Real Estate's Learning Center of Excellence. This award acknowledges individuals or teams who have demonstrated exceptional leadership, creativity, and initiative in implementing new and innovative processes to enhance efficiency, effectiveness, and performance."
     }
   ],
   "certificates": [
