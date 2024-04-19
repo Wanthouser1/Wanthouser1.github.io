@@ -1,64 +1,71 @@
 ---
 layout: page
-title: project 3
-description: a project that redirects to another website
+title: Automated Referral Data Collection and Export
+description: Data collection from eRelo's API
 img: assets/img/7.jpg
 redirect: https://unsplash.com
 importance: 3
 category: work
 ---
 
-This Python script automates the process of finding COVID-19 vaccine appointments at CVS pharmacies. Using Selenium, the script navigates to the CVS website, selects the user's state, and checks for vaccine availability. If appointments are available, it sends a notification via Twilio SMS to alert the user. The script runs periodically using the APScheduler library to ensure continuous monitoring of vaccine availability. This project demonstrates the use of web scraping and automation techniques to streamline the process of scheduling vaccine appointments, contributing to the ongoing efforts to combat the COVID-19 pandemic.
+This Python script facilitates the automated collection and export of referral data from an external API. The script utilizes the requests library to fetch data from the eRelocation API at regular intervals. Upon retrieval, the data is processed and stored in a Pandas DataFrame. Subsequently, the script exports the DataFrame to a CSV file named "referrals_data.csv" for further analysis or integration with other systems. Additionally, the script is configured to run on a predefined schedule using the schedule library, ensuring seamless and periodic updates of the referral dataset. By automating this process, the script enables efficient data management and analysis for eRelocation's referral program.
 
 {% raw %}
-
-#!/usr/bin/env python3
-import datetime
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+```python
+import json 
+import requests
+import pandas as pd
+import schedule
 import time
-from selenium.webdriver.common.action_chains import ActionChains
-import os
-from twilio.rest import Client
-from apscheduler.schedulers.blocking import BlockingScheduler
 
+def eRelo_schedule():
+    parameters = {
+        "CreatedAfterUTC": "2020-01-01T00:00:00",
+        "RecordsPerPage": 2000
+    }
+    
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": str('AUTHORIZATION_TOKEN'),
+    }
 
-def vaccine_finder():
-    # Your Account Sid and Auth Token from twilio.com/console
-    # and set the environment variables. See http://twil.io/secure
-    account_sid = 'YOUR ACCOUNT SID'
-    auth_token = 'YOUR AUTH TOKEN'
-    sender = 'SENDER NUMBER FROM TWILIO'
-    receiver = 'RECEIVER NUMBER'
-    client = Client(account_sid, auth_token)
+    referrals = []
 
-    driver = webdriver.Chrome('DRIVER LOCATION')
-    action = ActionChains(driver)
-    driver.get("https://www.cvs.com/immunizations/covid-19-vaccine")
-    driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
-    time.sleep(3)
+    pagenum = 1
 
-    driver.find_element_by_partial_link_text('YOUR STATE').click()
-    element = driver.find_element_by_class_name("boxcontainer")
-    action.move_to_element(element).perform()
+    while True:
+        url = f"https://restapi.erelocation.net/api/v1/GetReferrals?PageNum={pagenum}"
+        print("Requesting", url)
+        resp = requests.get(url, headers=headers, params=parameters)
+        data = resp.json()
+        
+        # Check if there are no more referrals
+        if len(data.get('Referral', [])) == 0:
+            print("All referrals fetched.")
+            break
+        
+        referrals.extend(data['Referral'])
+        pagenum += 1
 
-
-    vaccine_is_available = 'Available'
-    nj_availability_status = driver.find_element_by_xpath('/html/body/div[2]/div/div[19]/div/div/div/div/div/div[1]/div[2]/div/div/div[2]/div/div[6]/div/div/table').text
-    if nj_availability_status.find(vaccine_is_available) != -1:
-        print("We found you a vaccine!")
-        message = client.messages.create(body = 'We found you a vaccine! go to https://www.cvs.com/immunizations/covid-19-vaccine to schedule your appointment now!',from_ = sender,to = receiver)
-
+    # Convert the list of dictionaries to a DataFrame
+    df = pd.DataFrame(referrals)
+    
+    # Export DataFrame to a CSV file
+    csv_file = "referrals_data.csv"
+    if not os.path.isfile(csv_file):
+        df.to_csv(csv_file, index=False)
+        print(f"CSV file '{csv_file}' created successfully.")
     else:
-        print("No vaccines available in your area.")
-    driver.quit()
+        df.to_csv(csv_file, mode='a', header=False, index=False)
+        print(f"Data appended to CSV file '{csv_file}'.")
 
-vaccine_finder()
+# Schedule the function to run every 24 hours
+schedule.every(24).hours.do(eRelo_schedule)
 
-# Schedules job_function to be run once each minute
-scheduler = BlockingScheduler()
-scheduler.add_job(vaccine_finder, 'interval', minutes=5)
-scheduler.start()
+# Keep the script running to allow scheduling
+while True:
+    schedule.run_pending()
+    time.sleep(1)
 ```
 
 {% endraw %}
