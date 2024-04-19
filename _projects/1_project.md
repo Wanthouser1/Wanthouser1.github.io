@@ -5,7 +5,7 @@ description: This code will look to see if there are any available Covid vaccine
 img: assets/img/12.jpg
 importance: 1
 category: fun
-related_publications: true
+related_publications: false
 ---
 
 This Python script automates the process of finding COVID-19 vaccine appointments at CVS pharmacies. Using Selenium, the script navigates to the CVS website, selects the user's state, and checks for vaccine availability. If appointments are available, it sends a notification via Twilio SMS to alert the user. The script runs periodically using the APScheduler library to ensure continuous monitoring of vaccine availability. This project demonstrates the use of web scraping and automation techniques to streamline the process of scheduling vaccine appointments, contributing to the ongoing efforts to combat the COVID-19 pandemic.
