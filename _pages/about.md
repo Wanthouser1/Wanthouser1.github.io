@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>732-484-2852</p>
+    <p>(732) 484-2852</p>
     <p>47 High Point Dr.</p>
     <p>Springfield, NJ 07081</p>
 
