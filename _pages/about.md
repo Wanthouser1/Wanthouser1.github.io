@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Transforming Data into Value: Analytics, Operations, and Industry Insights
+subtitle: <p> Transforming Data into Value: Analytics, Operations, and Industry Insights </p>
 
 profile:
   align: right
@@ -18,4 +18,4 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a seasoned professional with expertise in data analytics, data governance, and operations. With a proven track record in leveraging data to drive strategic decisions and optimize business processes, I excel in implementing effective data governance frameworks and ensuring operational efficiency. My diverse skill set and extensive experience make me a valuable asset in navigating the complex landscape of data management and operations.
+<p> I am a seasoned professional with expertise in data analytics, data governance, and operations. With a proven track record in leveraging data to drive strategic decisions and optimize business processes, I excel in implementing effective data governance frameworks and ensuring operational efficiency. My diverse skill set and extensive experience make me a valuable asset in navigating the complex landscape of data management and operations. </p>
