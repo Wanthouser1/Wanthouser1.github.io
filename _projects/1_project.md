@@ -8,23 +8,7 @@ category: fun
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: This code will look to see if there are any available Covid vaccines at your local CVS. If there is availability, you will receive a text. You need a Twilio account in order to receive SMS.
-    img: /assets/img/12.jpg
-    ---
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+This Python script automates the process of finding COVID-19 vaccine appointments at CVS pharmacies. Using Selenium, the script navigates to the CVS website, selects the user's state, and checks for vaccine availability. If appointments are available, it sends a notification via Twilio SMS to alert the user. The script runs periodically using the APScheduler library to ensure continuous monitoring of vaccine availability. This project demonstrates the use of web scraping and automation techniques to streamline the process of scheduling vaccine appointments, contributing to the ongoing efforts to combat the COVID-19 pandemic.
 
 {% raw %}
 
