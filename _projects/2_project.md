@@ -116,4 +116,6 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=os.cpu_count()) as execut
 # Display scan results DataFrame
 display(scan_results)
 
+```
+
 {% endraw %}
