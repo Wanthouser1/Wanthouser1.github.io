@@ -3,7 +3,6 @@ layout: page
 title: Automated Referral Data Collection and Export
 description: Data collection from eRelo's API
 img: assets/img/7.jpg
-redirect: https://unsplash.com
 importance: 3
 category: work
 ---
