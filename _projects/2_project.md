@@ -22,6 +22,7 @@ Interactive Display: Presents scan results in an interactive DataFrame format, f
 By deploying this script, organizations can enhance their data governance practices by proactively identifying and managing sensitive information, thereby mitigating risks associated with data privacy compliance.
 
 {% raw %}
+```python
 # Install required Python packages from requirements.txt file
 %pip install -q -r ../../requirements.txt
 
