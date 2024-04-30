@@ -32,7 +32,7 @@
       "summary": "Collaborates closely with business teams to develop and maintain a comprehensive data catalog, incorporating essential business, technical, and operational metadata across diverse datasets. Utilizes advanced data analysis skills to support various projects, including data profiling, cataloging, cleansing, and enrichment processes.",
       "highlights": ["Data Management"]
     },
-   {
+    {
       "name": "Anywhere Real Estate",
       "position": "Manager, Data & Insights",
       "url": "https://anywhere.re/",
@@ -150,7 +150,7 @@
   "projects": [
     {
       "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mech,
+      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation.",
       "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
       "startDate": "2018-01-01",
       "endDate": "2018-01-01",
