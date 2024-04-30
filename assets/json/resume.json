@@ -90,14 +90,14 @@
       "issuer": "Databricks",
       "url": "https://www.linkedin.com/in/robertwanthousejr/details/certifications/",
       "icon": "fa-solid fa-tag"
-    }
+    },
     {
       "name": "Data Science Orientation",
       "date": "2019-09-01",
       "issuer": "IBM",
       "url": "https://www.credly.com/badges/975572e8-ff2f-4c29-ac5b-a4fb714ac24e/linked_in_profile",
       "icon": "fa-solid fa-envelope"
-    },
+    }
     {
   ],
   "skills": [
