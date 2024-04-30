@@ -90,7 +90,7 @@
       "issuer": "Databricks",
       "url": "https://www.linkedin.com/in/robertwanthousejr/details/certifications/",
       "icon": "fa-solid fa-tag"
-    },
+    }
     {
       "name": "Data Science Orientation",
       "date": "2019-09-01",
