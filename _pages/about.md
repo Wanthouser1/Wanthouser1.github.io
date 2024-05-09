@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Empowering Decision-Making with Data: Bridging Analytics, Governance, and Operations
+subtitle: <a> Empowering Decision-Making with Data: Bridging Analytics, Governance, and Operations </a>
 
 profile:
   align: right
