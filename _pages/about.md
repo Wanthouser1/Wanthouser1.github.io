@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Empowering Decision-Making with Data: Bridging Analytics, Governance, and Operations
 
 profile:
   align: right
@@ -13,7 +13,7 @@ profile:
     <p>47 High Point Dr.</p>
     <p>Springfield, NJ 07081</p>
 
-news: true # includes a list of news items
+news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
