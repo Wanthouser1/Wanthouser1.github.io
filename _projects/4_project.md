@@ -2,7 +2,7 @@
 layout: page
 title: Predicting Car Purchase
 description: Using logistic regression to predict if a car will be purchased.
-img: assets/img/7.jpg
+img: assets/img/13.jpg
 importance: 3
 category: fun
 ---
