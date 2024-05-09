@@ -1,70 +1,76 @@
 ---
 layout: page
-title: Automated Referral Data Collection and Export
-description: Data collection from eRelo's API
+title: Predicting Car Purchase
+description: Using logistic regression to predict if a car will be purchased.
 img: assets/img/7.jpg
 importance: 3
 category: work
 ---
 
-This Python script facilitates the automated collection and export of referral data from an external API. The script utilizes the requests library to fetch data from the eRelocation API at regular intervals. Upon retrieval, the data is processed and stored in a Pandas DataFrame. Subsequently, the script exports the DataFrame to a CSV file named "referrals_data.csv" for further analysis or integration with other systems. Additionally, the script is configured to run on a predefined schedule using the schedule library, ensuring seamless and periodic updates of the referral dataset. By automating this process, the script enables efficient data management and analysis for eRelocation's referral program.
+This project focuses on predicting whether a customer will purchase a car based on certain features using logistic regression. The dataset used contains information about customers' demographics and other relevant details, including their likelihood to purchase a car. By analyzing and visualizing this data, I built a predictive model that accurately predicts whether a customer will purchase a car based on selected features.
 
 {% raw %}
 ```python
-import json 
-import requests
+# Importing all the dependencies
+
 import pandas as pd
-import schedule
-import time
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
 
-def eRelo_schedule():
-    parameters = {
-        "CreatedAfterUTC": "2020-01-01T00:00:00",
-        "RecordsPerPage": 2000
-    }
-    
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": str('AUTHORIZATION_TOKEN'),
-    }
+df_train = pd.read_csv("car_data.csv")
+#Size and info of data
 
-    referrals = []
+print(f"The size of the data is {df_train.shape}")
+print(f"The data have  {df_train.shape[0]} rows and {df_train.shape[1]} columns.")
+print()
+print(f"The overall information of the data:")
+print()
+print(df_train.info())
 
-    pagenum = 1
+# Initial Statistical Analysis
+df_train.describe()
 
-    while True:
-        url = f"https://restapi.erelocation.net/api/v1/GetReferrals?PageNum={pagenum}"
-        print("Requesting", url)
-        resp = requests.get(url, headers=headers, params=parameters)
-        data = resp.json()
-        
-        # Check if there are no more referrals
-        if len(data.get('Referral', [])) == 0:
-            print("All referrals fetched.")
-            break
-        
-        referrals.extend(data['Referral'])
-        pagenum += 1
+# We have to observe and visualize the annual salary income
 
-    # Convert the list of dictionaries to a DataFrame
-    df = pd.DataFrame(referrals)
-    
-    # Export DataFrame to a CSV file
-    csv_file = "referrals_data.csv"
-    if not os.path.isfile(csv_file):
-        df.to_csv(csv_file, index=False)
-        print(f"CSV file '{csv_file}' created successfully.")
-    else:
-        df.to_csv(csv_file, mode='a', header=False, index=False)
-        print(f"Data appended to CSV file '{csv_file}'.")
+df_train.boxplot(column = 'AnnualSalary')
+# Checking how many null vlaues in the dataset
 
-# Schedule the function to run every 24 hours
-schedule.every(24).hours.do(eRelo_schedule)
+df_train.isnull().sum()
+#Change categorical values to 0's and 1's
+df_train['Gender'] = df_train['Gender'].replace('Male',0)
+df_train['Gender'] = df_train['Gender'].replace('Female',1)
 
-# Keep the script running to allow scheduling
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# x have independent Variable
+x = df_train.iloc[:, np.r_[1:4]].values
+
+# y have only dependent variable
+y = df_train.iloc[:, 4].values
+# Importing the necessary library for implementation
+
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x,y, test_size=0.2, random_state=0)
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+
+# Standardize the features
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(x_train)
+X_test_scaled = scaler.transform(x_test)
+
+# Initialize logistic regression model
+logreg = LogisticRegression()
+
+# Fit the model on the training data
+logreg.fit(X_train_scaled, y_train)
+
+# Make predictions on the testing data
+y_pred = logreg.predict(X_test_scaled)
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
 ```
 
 {% endraw %}
