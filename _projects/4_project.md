@@ -4,7 +4,7 @@ title: Predicting Car Purchase
 description: Using logistic regression to predict if a car will be purchased.
 img: assets/img/7.jpg
 importance: 3
-category: work
+category: fun
 ---
 
 This project focuses on predicting whether a customer will purchase a car based on certain features using logistic regression. The dataset used contains information about customers' demographics and other relevant details, including their likelihood to purchase a car. By analyzing and visualizing this data, I built a predictive model that accurately predicts whether a customer will purchase a car based on selected features.
