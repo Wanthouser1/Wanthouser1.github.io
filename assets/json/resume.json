@@ -123,38 +123,30 @@
   ],
   "interests": [
     {
-      "name": "Physics",
+      "name": "Machine Learning",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Linear/Logistic Regression",
+        "Neural Networks",
+        "NLP"
       ]
     }
   ],
   "references": [
     {
-      "name": "Professor John Doe",
+      "name": "Beth Kujan",
       "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    },
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+      "reference": "Agile, Responsible, Imperturbable. The sort of team mate one hopes for. "
     }
   ],
   "projects": [
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
-      "url": "https://example.com"
+      "name": "Data Privacy Scanner",
+      "summary": "Personal Identifiable Information (PII) Identifier.",
+      "highlights": ["Python", "Machine Learning"],
+      "startDate": "2023-04-01",
+      "endDate": "2023-04-19",
+      "url": "https://wanthouser1.github.io/projects/2_project/"
     }
   ]
 }
